@@ -1,4 +1,11 @@
-alert('Hello World');
+// array of objects
 
-let favoriteFood = 'Pasta';
-document.write(favoriteFood); 
+let pokemonList = [
+
+    { name: 'Bulbasaur', height: 7},
+    { name: 'Wigglytuff', height: 10},
+    { name: 'Eevee', height: 3}
+];
+
+//array of strings
+let type = ['poison', 'green', 'fairy', 'normal'];
