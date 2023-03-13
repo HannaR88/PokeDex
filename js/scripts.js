@@ -2,10 +2,13 @@
 
 let pokemonList = [
 
-    { name: 'Bulbasaur', height: 7},
-    { name: 'Wigglytuff', height: 10},
-    { name: 'Eevee', height: 3}
+    { name: 'Bulbasaur', height: 7, types:
+    ['poison', 'grass']},
+
+    { name: 'Wigglytuff', height: 10, types:
+    ['fairy', 'normal']},
+
+    { name: 'Eevee', height: 3, types:
+    ['normal']},
 ];
 
-//array of strings
-let type = ['poison', 'green', 'fairy', 'normal'];
