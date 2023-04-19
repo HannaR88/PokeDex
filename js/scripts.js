@@ -23,8 +23,8 @@ let pokemonSize = "Wow that's a large pokemon.";
 
 
 for (let i = 0; i < pokemonList.length; i++) {
-    if (pokemonList[i].height > 7) {
-        document.write(${ pokemonList[i].name }
-            (height(${ pokemonList[i].height }) - ${ pokemonSize});
+    const pokemon = pokemonList[i]
+    if (pokemon.height > 7) {
+        document.write(`${pokemonSize}  ${pokemon.name} ${pokemon.height}`)
     }
 }
