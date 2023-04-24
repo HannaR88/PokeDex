@@ -1,20 +1,4 @@
 // array of objects
-let pokemonRepository = (function () {
-
-    function getAll() {
-        return pokemonList;
-    }
-   
-function add(pokemon) {
-    pokemonList.push(pokemon)
-}
-
-return {
-    getAll: getAll,
-    add: add
-};
-
-}) ();
 
 let pokemonList = [
 
@@ -35,10 +19,12 @@ let pokemonList = [
 ];
 
 
-pokemonRepository.getAll().forEach(function (pokemon) {
-    if (pokemon.height >= 7) {
-        document.write(pokemon.name + " (height: " + pokemon.height + ") - Wow that's big!<br>");
-    } else {
-        document.write(pokemon.name + " (height: " + pokemon.height + ")<br>");
+let pokemonSize = "Wow that's a large pokemon.";
+
+
+for (let i = 0; i < pokemonList.length; i++) {
+    const pokemon = pokemonList[i]
+    if (pokemon.height > 7) {
+        document.write(`${pokemonSize}  ${pokemon.name} ${pokemon.height}`)
     }
-});
+}
