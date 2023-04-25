@@ -27,4 +27,5 @@ for (let i = 0; i < pokemonList.length; i++) {
     } else {
         document.write(pokemon.name + " (height: " + pokemon.height + ")<br>");
     }
-}
+} 
+
