@@ -19,12 +19,12 @@ let pokemonList = [
 ];
 
 
-let pokemonSize = "Wow that's a large pokemon.";
-
-
 for (let i = 0; i < pokemonList.length; i++) {
     const pokemon = pokemonList[i]
     if (pokemon.height > 7) {
-        document.write(`${pokemonSize}  ${pokemon.name} ${pokemon.height}`)
+        document.write(pokemon.name + " (height: " + pokemon.height + ") - Wow that is a large pokemon! <br>" );
+    
+    } else {
+        document.write(pokemon.name + " (height: " + pokemon.height + ")<br>");
     }
 }
