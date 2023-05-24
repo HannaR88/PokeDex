@@ -66,6 +66,24 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
 })();
 
 
-pokemonRepository.getAll().forEach(function (pokemon) {// here we are calling on pokemonRepository the function getAll and on that were using the forEach function with the value pokemon
-    console.log(pokemon.name + ' height ' + pokemon.height); // here we are printing to the console the results of the getAll().forEach functions
-});
+//pokemonRepository.getAll().forEach(function (pokemon) {// here we are calling on pokemonRepository the function getAll and on that were using the forEach function with the value pokemon
+  //  console.log(pokemon.name + ' height ' + pokemon.height); // here we are printing to the console the results of the getAll().forEach functions
+//});
+
+function addListItem(pokemon) {
+
+let pokemonList= document.querySelector(pokemonList)
+let listItem = document.createElement("li")
+
+
+
+
+let button = document.createElement('.button')
+button.innerText = (pokemon.name)
+button.classList.add('button')
+listItem.appendChild(button);
+listItem.appendChild(listItem);
+
+}
+
+
