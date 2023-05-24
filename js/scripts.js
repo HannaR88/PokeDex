@@ -1,33 +1,3 @@
-// array of objects
-
-//let pokemonList = [
-
-//{
-// name: 'Bulbasaur', height: 7, types:
-//      ['poison', 'grass']
-//},
-
-//{
-//    name: 'Wigglytuff', height: 10, types:
-//          ['fairy', 'normal']
-//    },
-
-//{
-//  name: 'Eevee', height: 3, types:
-//        ['normal']
-//  },
-//];
-
-
-//for (let i = 0; i < pokemonList.length; i++) {
-//  const pokemon = pokemonList[i]
-//if (pokemon.height > 7) {
-//    document.write(pokemon.name + " (height: " + pokemon.height + ") - Wow that is a large pokemon! <br>" );
-
-// } else {
-//     document.write(pokemon.name + " (height: " + pokemon.height + ")<br>");
-//}
-
 let pokemonRepository = (function () { //this line along with line 68 is the IIFE that 'wraps' around the code
 
     let pokemonList = [  //my array of objects 
@@ -48,42 +18,26 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
         },
     ];
 
-
     function add(pokemon) {  //this is where I will add the function to add pokemon to my array later
-
         pokemonList.push(pokemon);
     }
 
     function getAll() {   // this function is what is "getting all" of the pokemon from my pokemonList array
-
         return pokemonList;
-    }
-    return {   // the IIFE prevents outside functions from altering what is inside of it, to use the the data of the IIFE these are what are used outside of the IIFE
-
-        add: add,
-        getAll: getAll
     };
-})();
 
+    function addListItem(pokemon, i) {
 
-//pokemonRepository.getAll().forEach(function (pokemon) {// here we are calling on pokemonRepository the function getAll and on that were using the forEach function with the value pokemon
-  //  console.log(pokemon.name + ' height ' + pokemon.height); // here we are printing to the console the results of the getAll().forEach functions
-//});
+        let pokemonList = document.querySelector('.pokemonList');
+        pokemonList.classList.add();
 
-function addListItem(pokemon) {
+        let listItem = document.createElement('li');
+        listItem.classList.add();
 
-let pokemonList= document.querySelector(pokemonList)
-let listItem = document.createElement("li")
+        let button = document.createElement('button')
+        button.classList.add();
 
-
-
-
-let button = document.createElement('.button')
-button.innerText = (pokemon.name)
-button.classList.add('button')
-listItem.appendChild(button);
-listItem.appendChild(listItem);
-
-}
-
-
+        listItem.appendChild(button)
+        listItem.appendChild(li)
+    }
+})
