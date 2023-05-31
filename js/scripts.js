@@ -29,15 +29,32 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
     function addListItem(pokemon, i) {
 
         let pokemonList = document.querySelector('.pokemonList');
-        pokemonList.classList.add();
+
 
         let listItem = document.createElement('li');
-        listItem.classList.add();
+
 
         let button = document.createElement('button')
-        button.classList.add();
+        button.innerText = pokemon.name;
+
 
         listItem.appendChild(button)
-        listItem.appendChild(li)
+        listItem.appendChild(pokemonList)
+
+
+        button.addEventListener('click', () => console.log(pokemon))
+        showDetails(pokemon);
+
+
     }
-})
+})()
+
+//Looping thru all the Pokemon and displaying them in the webpage
+pokemonRepository.getAll().forEach((pokemon) => {
+    pokemonRepository.addListItem(pokemon);
+
+});
+
+
+
+
