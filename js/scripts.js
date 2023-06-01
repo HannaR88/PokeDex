@@ -26,35 +26,30 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
         return pokemonList;
     };
 
-    function addListItem(pokemon, i) {
+    function addListItem(pokemon) {
 
-        let pokemonList = document.querySelector('.pokemonList');
+        const pokemonList = document.querySelector('.pokemonList');
+        const listItem = document.createElement('li');
 
-
-        let listItem = document.createElement('li');
-
-
-        let button = document.createElement('button')
+        const button = document.createElement('button');
         button.innerText = pokemon.name;
 
 
-        listItem.appendChild(button)
+        listItem.append(button)
         listItem.appendChild(pokemonList)
 
 
-        button.addEventListener('click', () => console.log(pokemon))
+        button.addEventListener('click', () => {
         showDetails(pokemon);
+        });
+}
 
+function showDetails(pokemon) {}
 
-    }
-})()
 
 //Looping thru all the Pokemon and displaying them in the webpage
-pokemonRepository.getAll().forEach((pokemon) => {
-    pokemonRepository.addListItem(pokemon);
+pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon, i);
 
 });
-
-
-
-
+});
