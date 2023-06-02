@@ -31,7 +31,7 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
         const pokemonUl = document.querySelector('.pokemonList');
 
         const listItem = document.createElement('li');
-        
+
         const button = document.createElement('button');
         button.innerText = pokemon.name;
         button.addEventListener('click', () => showDetails(pokemon));
@@ -45,15 +45,14 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
         console.log(pokemon.name);
     };
 
-    //Looping thru all the Pokemon and displaying them in the webpage
-    pokemonRepository.getAll().forEach(function (pokemon) {
-        pokemonRepository.addListItem(pokemon);
-
-    });
-
     return {
-        add: add, 
-        getAll: getAll, 
+        add: add,
+        getAll: getAll,
         addListItem: addListItem
     };
+})()
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
+
 });
