@@ -60,15 +60,54 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
     }
 
     function showDetails(pokemon) {
-        console.log(pokemon.name);
-    };
-    return {
+        loadDetails(pokemon)
+
+    }
+
+    function showModal(title, text) {
+
+        let modalTitle = document.querySelector(".modal-title");
+        modalTitle.innerText = pokemon.name;
+
+        let pokemonImage = document.querySelector('.pokemon-image');
+        modalImage.src = pokemon.imageUrl;
+
+
+        //Clear all existing modal content
+        modalContainer.innerHTML = '';
+
+        let modal = document.createElement('div');
+        modal.classList('modal');
+
+        //Add new modal content
+        let closeButtonElement = document.createElement('button');
+        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.innerHTML = 'Close'; //to get the HTML content
+
+        let titleElement = document.createElement('h1');
+        titleElement.innerText = title;
+
+        let contentElement = document.createElement('p');
+        contentElement.innerHTML = text;
+
+        modal.appendChild(closeButtonElement);
+        modal.appendChild(titleElement);
+        modal.appendChild(contentElement);
+        modalContainer.appendChild(modal);
+    }
+
+
+
+
+    return {    //creation of new object*/
         add: add,
         getAll: getAll,
         addListItem: addListItem,
         loadList: loadList
     };
 })();
+
+
 
 pokemonRepository.loadList().then(function () {
     pokemonRepository.getAll().forEach(function (pokemon) {
