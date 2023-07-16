@@ -49,53 +49,55 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
             return response.json();
         }).then(function (details) {
 
-            //Adding details to the item   
-            item.imageUlr = details.sprites.front_default;
-            item.height = details.height;
-            item.types = details.types;
+            // Adding details to the pokemon object
+
+            pokemon.imageUrl = details.sprites.front_default;
+
+            pokemon.height = details.height;
+
+            pokemon.types = details.types;
 
         }).catch(function (e) {
-            console.error(e);
-        });
-    }
 
+            console.error(e);
+
+        });
+
+    }
     function showDetails(pokemon) {
         loadDetails(pokemon)
 
     }
 
-    function showModal(title, text) {
+    function showModal(props) {
+		// Clear previous pokemon before adding new one to modal
+		hideModal();
 
-        let modalTitle = document.querySelector(".modal-title");
-        modalTitle.innerText = pokemon.name;
+		// Make and edit all details in modal.
+		makePokemonImg(props);
+		makePokemonHeightAndWeight(props);
+		makePokemonType(props);
+		makeModalCloseButton();
+	}
 
-        let pokemonImage = document.querySelector('.pokemon-image');
-        modalImage.src = pokemon.imageUrl;
+	// Clear the previous modal content
+	function hideModal() {
+		if (document.querySelector('.pokedex-modal-close')) {
+			document.querySelector('.pokedex-modal-close').remove();
+		}
 
+		if (document.querySelector('.pokemon-img')) {
+			document.querySelector('.pokemon-img').remove();
+		}
 
-        //Clear all existing modal content
-        modalContainer.innerHTML = '';
+		if (document.querySelector('#about-screen').innerHTML) {
+			document.querySelector('#about-screen').innerHTML = '';
+		}
 
-        let modal = document.createElement('div');
-        modal.classList('modal');
-
-        //Add new modal content
-        let closeButtonElement = document.createElement('button');
-        closeButtonElement.classList.add('modal-close');
-        closeButtonElement.innerHTML = 'Close'; //to get the HTML content
-
-        let titleElement = document.createElement('h1');
-        titleElement.innerText = title;
-
-        let contentElement = document.createElement('p');
-        contentElement.innerHTML = text;
-
-        modal.appendChild(closeButtonElement);
-        modal.appendChild(titleElement);
-        modal.appendChild(contentElement);
-        modalContainer.appendChild(modal);
-    }
-
+		if (document.querySelector('#type-screen').innerHTML) {
+			document.querySelector('#type-screen').innerHTML = '';
+		}
+	}
 
 
 
