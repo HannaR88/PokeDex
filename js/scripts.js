@@ -66,39 +66,22 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
     }
     function showDetails(pokemon) {
         loadDetails(pokemon)
-
-    }
-
-    function showModal(props) {
-		// Clear previous pokemon before adding new one to modal
-		hideModal();
-
-		// Make and edit all details in modal.
-		makePokemonImg(props);
-		makePokemonHeightAndWeight(props);
-		makePokemonType(props);
-		makeModalCloseButton();
-	}
-
-	// Clear the previous modal content
-	function hideModal() {
-		if (document.querySelector('.pokedex-modal-close')) {
-			document.querySelector('.pokedex-modal-close').remove();
-		}
-
-		if (document.querySelector('.pokemon-img')) {
-			document.querySelector('.pokemon-img').remove();
-		}
-
-		if (document.querySelector('#about-screen').innerHTML) {
-			document.querySelector('#about-screen').innerHTML = '';
-		}
-
-		if (document.querySelector('#type-screen').innerHTML) {
-			document.querySelector('#type-screen').innerHTML = '';
-		}
-	}
-
+      }
+    
+      function showModal(pokemon) {
+    
+        let modalTitle = document.querySelector(".modal-title");
+        modalTitle.innerText = pokemon.name;
+    
+        let pokemonImage = document.querySelector('.pokemon-image');
+        pokemonImage.src = pokemon.imageUrl;
+    
+        let pokemonHeight = document.querySelector('.pokemon-height');
+        pokemonHeight.innerText = 'Height : ' + (pokemon.height/10) + ' m';
+    
+    
+      }
+    
 
 
     return {    //creation of new object*/
