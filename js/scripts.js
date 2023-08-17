@@ -65,23 +65,26 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
 
     }
     function showDetails(pokemon) {
-        loadDetails(pokemon)
-      }
-    
-      function showModal(pokemon) {
-    
+        loadDetails(pokemon).then(() => {
+            showModal(pokemon)
+        })
+    }
+
+    function showModal(pokemon) {
+        console.log(pokemon)
+
         let modalTitle = document.querySelector(".modal-title");
         modalTitle.innerText = pokemon.name;
-    
+
         let pokemonImage = document.querySelector('.pokemon-image');
         pokemonImage.src = pokemon.imageUrl;
-    
+
         let pokemonHeight = document.querySelector('.pokemon-height');
-        pokemonHeight.innerText = 'Height : ' + (pokemon.height/10) + ' m';
-    
-    
-      }
-    
+        pokemonHeight.innerText = 'Height : ' + (pokemon.height / 10) + ' m';
+
+
+    }
+
 
 
     return {    //creation of new object*/
