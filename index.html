@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Simple JS App</title>
-</head>
-
-
-<body>
-    <button id ='show-modal'>Show modal</button>
-        <div id ='modal-container'>
-            <div class='modal'>
-            <button class='modal-close'>Close</button>
-            <h1 class="modal-title"> Modal Title</h1>
-            <p class="modal-text"> Modal text</p>
-            <img class="pokemon-image"/>
-            <p class="pokemon-height"> Modal text</p>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <title>Simple JS App</title>
+    </head>
+    <body>
+        <!-- <button id='show-modal' class="button-class">Show modal</button> -->
+        <div id="modal-container">
+            <div class="modal">
+                <button class="modal-close">Close</button>
+                <h1 class="modal-title"> Modal Title</h1>
+                <p class="modal-text"> Modal text</p>
+                <img class="pokemon-image" />
+                <p class="pokemon-height"> Modal text</p>
+            </div>
         </div>
-
-    <div class="pokedex">
-        <ul class="pokemonList"></ul>
-    </div>
-    <strong>
-        <script src="js/promise-polyfill.js"></script>
-        <script src="js/fetch-polyfill.js"></script>
-        <script class="pokemon" src="js/scripts.js"></script>
-    </strong>
-</body>
-
+        <div class="pokedex">
+            <ul class="pokemonList"></ul>
+        </div>
+        <strong>
+            <script src="promise-polyfills.js"></script>
+            <script src="fetch-polyfills.js"></script>
+            <script class="pokemon" src="js/scripts.js"></script>
+        </strong>
+    </body>
 </html>

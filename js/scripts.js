@@ -19,12 +19,13 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
 
         const button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.addEventListener('click', () => showDetails(pokemon));
-
+        button.classList.add("button-class");
+        button.addEventListener('click', function () {
+            showDetails(pokemon)
+        });
         listItem.appendChild(button);
         pokemonUl.appendChild(listItem);
     };
-
 
     function loadList() {
         return fetch(apiUrl).then(function (response) {
@@ -52,38 +53,39 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
             // Adding details to the pokemon object
 
             pokemon.imageUrl = details.sprites.front_default;
-
             pokemon.height = details.height;
-
             pokemon.types = details.types;
-
         }).catch(function (e) {
-
             console.error(e);
-
         });
 
     }
     function showDetails(pokemon) {
-        loadDetails(pokemon).then(() => {
+        loadDetails(pokemon).then(function () {
             showModal(pokemon)
-        })
+        });
     }
 
     function showModal(pokemon) {
         console.log(pokemon)
 
-        let modalTitle = document.querySelector(".modal-title");
+        let modalContainer = document.getElementById("modal-container");
+        let modalTitle = modalContainer.querySelector(".modal-title");
+        let pokemonImage = modalContainer.querySelector(".pokemon-image");
+        let pokemonHeight = modalContainer.querySelector(".pokemon-height");
+        
         modalTitle.innerText = pokemon.name;
-
-        let pokemonImage = document.querySelector('.pokemon-image');
         pokemonImage.src = pokemon.imageUrl;
-
-        let pokemonHeight = document.querySelector('.pokemon-height');
-        pokemonHeight.innerText = 'Height : ' + (pokemon.height / 10) + ' m';
-
-
+        pokemonHeight.innerText = "Height: " + (pokemon.height / 10) + " m";
+        modalContainer.classList.add("is-visible");
     }
+    //close modal when close button is clicked
+    document.querySelectorAll(".modal-close").forEach(function (button) {
+        button.addEventListener("click", function () {
+            let modalContainer = document.getElementById("modal-container");
+            modalContainer.classList.remove("is-visible")
+        })
+    });
 
 
 
@@ -91,7 +93,10 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
         add: add,
         getAll: getAll,
         addListItem: addListItem,
-        loadList: loadList
+        loadList: loadList, 
+        loadDetails: loadDetails, 
+        showDetails: showDetails, 
+        showModal: showModal
     };
 })();
 
