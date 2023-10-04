@@ -99,6 +99,7 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
 })();
 
 
+
 pokemonRepository.loadList().then(function () {
     pokemonRepository.getAll().forEach(function (pokemon) {
         pokemonRepository.addListItem(pokemon);
