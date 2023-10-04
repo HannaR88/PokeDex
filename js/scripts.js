@@ -21,7 +21,7 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
         button.innerText = pokemon.name;
 
 
-        
+
         button.classList.add("btn", "btn-primary", "btn-md");
         button.setAttribute('data-target', '#exampleModal');
         button.setAttribute('data-toggle', 'modal');
@@ -31,7 +31,7 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
         button.addEventListener('click', function () {
             showDetails(pokemon)
         });
-        
+
     }
 
     function showModal(pokemon) {
@@ -43,23 +43,23 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
         modalTitle.empty();
         modalBody.empty();
 
-            // creating element for name in modal content
-    let nameElement = $('<h5 class="modal-title">' + pokemon.name + '</h5>');
-    let imageElement = $('<img class="modal-img">');
-      imageElement.attr('src', pokemon.imageUrl);
-    let heightElement = $('<p>' + 'height : ' + pokemon.height + ' decimeters' + '</p>');
-    let weightElement = $('<p>' + 'weight : ' + pokemon.weight + ' decagrams' + '</p>');
-    let typesElement = $('<p>' + 'Types: ' + pokemon.types.join(', ') + '</p>');
-    let abilitiesElement = $('<p>' + 'Abilities: ' + pokemon.abilities.join(', ') + '</p>');
+        // creating element for name in modal content
+        let nameElement = $('<h5 class="modal-title">' + pokemon.name + '</h5>');
+        let imageElement = $('<img class="modal-img">');
+        imageElement.attr('src', pokemon.imageUrl);
+        let heightElement = $('<p>' + 'height : ' + pokemon.height + ' decimeters' + '</p>');
+        let weightElement = $('<p>' + 'weight : ' + pokemon.weight + ' decagrams' + '</p>');
+        let typesElement = $('<p>' + 'Types: ' + pokemon.types.join(', ') + '</p>');
+        let abilitiesElement = $('<p>' + 'Abilities: ' + pokemon.abilities.join(', ') + '</p>');
 
 
-    modalTitle.append(nameElement);
-    modalBody.append(imageElement);
-    modalBody.append(heightElement);
-    modalBody.append(weightElement);
-    modalBody.append(typesElement);
-    modalBody.append(abilitiesElement);
-  }
+        modalTitle.append(nameElement);
+        modalBody.append(imageElement);
+        modalBody.append(heightElement);
+        modalBody.append(weightElement);
+        modalBody.append(typesElement);
+        modalBody.append(abilitiesElement);
+    }
 
     function loadList() {
         return fetch(apiUrl).then(function (response) {
@@ -101,13 +101,13 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
     }
 
 
-    return {   
+    return {
         add: add,
         getAll: getAll,
         addListItem: addListItem,
-        loadList: loadList, 
-        loadDetails: loadDetails, 
-        showDetails: showDetails, 
+        loadList: loadList,
+        loadDetails: loadDetails,
+        showDetails: showDetails,
         showModal: showModal
     };
 })();
