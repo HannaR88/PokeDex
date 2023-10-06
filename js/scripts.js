@@ -13,18 +13,19 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
     };
 
     function addListItem(pokemon) {
+
         const pokemonUl = document.querySelector('.pokemonList');
         const listItem = document.createElement('li');
         const button = document.createElement('button');
         listItem.classList.add("list-group-item", "mx-auto");
         button.innerText = pokemon.name;
-    
+
         button.classList.add("btn", "btn-primary", "btn-md");
         button.setAttribute('data-target', '#exampleModal');
         button.setAttribute('data-toggle', 'modal');
         listItem.appendChild(button);
         pokemonUl.appendChild(listItem); // Corrected line
-    
+
         button.addEventListener('click', function () {
             showDetails(pokemon)
         });
@@ -57,17 +58,19 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
         modalBody.append(abilitiesElement);
     }
 
-    function loadList() {
+    function loadList(item) {
         return fetch(apiUrl).then(function (response) {
             return response.json();
         }).then(function (json) {
+
             json.results.forEach(function (item) {
                 let pokemon = {
                     name: item.name,
                     detailsUrl: item.url,
                 };
                 add(pokemon);
-            });
+
+            })
         }).catch(function (e) {
             console.error(e);
         });
@@ -82,9 +85,11 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
 
             // Adding details to the pokemon object
 
-            pokemon.imageUrl = details.sprites.front_default;
-            pokemon.height = details.height;
-            pokemon.types = details.types;
+            item.height = details.height;
+            item.weight = details.weight;
+            item.types = details.types.map(function (type) {
+                return type.type.name;
+            });
         }).catch(function (e) {
             console.error(e);
         });
@@ -96,18 +101,15 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
         });
     }
 
-
     return {
         add: add,
         getAll: getAll,
         addListItem: addListItem,
         loadList: loadList,
         loadDetails: loadDetails,
-        showDetails: showDetails,
-        showModal: showModal
+
     };
 })();
-
 
 
 pokemonRepository.loadList().then(function () {
