@@ -13,25 +13,21 @@ let pokemonRepository = (function () { //this line along with line 68 is the IIF
     };
 
     function addListItem(pokemon) {
-
         const pokemonUl = document.querySelector('.pokemonList');
         const listItem = document.createElement('li');
         const button = document.createElement('button');
         listItem.classList.add("list-group-item", "mx-auto");
         button.innerText = pokemon.name;
-
-
-
+    
         button.classList.add("btn", "btn-primary", "btn-md");
         button.setAttribute('data-target', '#exampleModal');
         button.setAttribute('data-toggle', 'modal');
         listItem.appendChild(button);
-        pokemonList.appendChild(listItem);
-
+        pokemonUl.appendChild(listItem); // Corrected line
+    
         button.addEventListener('click', function () {
             showDetails(pokemon)
         });
-
     }
 
     function showModal(pokemon) {
