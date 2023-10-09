@@ -1,14 +1,10 @@
-/********************** GENERAL SETTINGS START **********************/
-/* Color Palette and Typography Start */
-/* End: Color Palette and Typography */
-/* Universal Selector Start */
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
   }
   
-  /* End: Universal Selector */
   /* Body Start */
   body {
     font-family: "Montserrat", sans-serif;
@@ -24,6 +20,7 @@
   }
   
   /* End: Body */
+
   /* Headings Start */
   h1 {
     font-family: "Barlow Condensed", sans-serif;
@@ -71,7 +68,7 @@
   /* End: Header */
   /* Carousel Start */
   #myCarousel{
-    width: 60%;
+    width: 80%;
     margin: 100px auto;
     padding: 10px;
     border-radius: 5px;
