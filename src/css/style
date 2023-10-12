@@ -31,8 +31,7 @@
   }
   
   /* End: Headings */
-  /********************** END: GENERAL SETTINGS **********************/
-  /********************** SECTION SPECIFIC SETTINGS START **********************/
+ 
   /* Header Start */
   .page-header {
     display: flex;
@@ -66,6 +65,7 @@
   }
   
   /* End: Header */
+
   /* Carousel Start */
   #myCarousel{
     width: 80%;
@@ -99,6 +99,7 @@
   }
   
   /* End: Carousel */
+
   /* Search Bar Start */
   .search-bar__heading {
     text-align: center;
@@ -145,6 +146,7 @@
   }
   
   /* End: Search Bar */
+
   /* Main Section Start */
   .page-main {
     min-height: calc(100vh - 195px);
@@ -335,6 +337,8 @@
   
   /* End: Flip card animation */
   /* End: Main Section */
+
+
   /* Footer Start */
   .page-container {
     position: relative;
@@ -364,4 +368,3 @@
   }
   
   /* End: Footer */
-  /********************** END: SECTION SPECIFIC SETTINGS **********************//*# sourceMappingURL=style.css.map */
