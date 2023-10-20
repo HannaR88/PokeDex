@@ -1,17 +1,13 @@
 //Create IIFE to avoid accidentally accessing the global state of `pokemonList` array
 let pokemonRepository = (function () {
-    // Create an empty array, called `pokemonList`
     let pokemonList = [];
-    //Create variable for PokeAPI endpoint
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-    //Create public function in order to add a single item to the `pokemonList` array through push() method
+
     function add(pokemonItem) {
-        //Validate whether a type of the parameter is an object
         if (typeof pokemonItem === 'object') {
             const expectedKeys = ['name', 'detailsUrl'];
             let checkKey = true;
-            // Validate whether all expected keys are present in the object using forEach loop
             expectedKeys.forEach((expectedKey) => {
                 if (!Object.keys(pokemonItem).includes(expectedKey)) {
                     checkKey = false;
@@ -48,13 +44,10 @@ let pokemonRepository = (function () {
         listBtn.innerText = pokemon.name;
         listBtn.classList.add('pokemon-list__item');
 
-        //Set the content of the <img> element
-        imgPreview.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
-
         //Append img to btn, btn to <li> and <li> to <ul>
         listBtn.appendChild(imgPreview);
         uListItem.appendChild(listBtn);
-        uListOfPokemons.appendChild(uListItem);
+       // uListOfPokemons.appendChild(uListItem);
 
         //Call btnListener() function
         btnListener(listBtn, pokemon);
@@ -63,7 +56,7 @@ let pokemonRepository = (function () {
         let nameList = document.getElementById('datalistOptions');
         let option = document.createElement('option');
         option.value = pokemon.name;
-        nameList.appendChild(option);
+       // nameList.appendChild(option);
 
         //Set the id attribute of the Pokémon buttons to match the index of Pokémon
         listBtn.setAttribute('id', pokemon.id);
@@ -98,7 +91,7 @@ let pokemonRepository = (function () {
     //Create public function to search for different Pokémon at the search bar
     function clickSearch() {
         let searchBtn = document.getElementById('searchBtn');
-        searchBtn.addEventListener('click', function () {
+       // searchBtn.addEventListener('click', function () {
             //Let's empty the href of the result <a> first
             let result = document.getElementById('result');
             result.href = '';
@@ -107,8 +100,8 @@ let pokemonRepository = (function () {
             // console.log(searchInput.value)
             //Call the searchOne() function and use the vaule of the input as argument
             searchOne(searchInput.value.toLowerCase());
-        });
-    }
+        }});
+
 
     //Create function to print details of single Pokémon item on console
     function showDetails(pokemon) {
@@ -311,17 +304,6 @@ let pokemonRepository = (function () {
             });
     }
 
-    //Create function to display a loading message while data is being loaded
-    // function showLoadingMessage(){
-    //     console.log('Data is loading');
-    // }
-
-    //Create function to remove the loading message, if data has been loaded
-    // function hideLoadingMessage(){
-    //     console.log('Data is loaded. Here comes the result');
-    // }
-
-    //Public functions assigned as keys of IIFE
     return {
         add: add,
         getAll: getAll,
@@ -330,7 +312,7 @@ let pokemonRepository = (function () {
         loadDetails: loadDetails,
         clickSearch: clickSearch,
     };
-})();
+();
 
 //Create `forEach` to iterate over the fetched Pokémon items from the API and display them
 pokemonRepository.loadList().then(function () {
