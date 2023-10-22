@@ -12,6 +12,10 @@ body {
     text-align: center;
     margin-top: 35px;
 }
+img {
+    width: 40px;
+    top: 100px;
+}
 .navbar {
     background-color: #A52A2A;
 }
@@ -53,10 +57,10 @@ body {
 }
 footer {
     font-family: 'Lato', sans-serif;
-    font-weight: var(--font-weight);
-    font-size: var(--font-size);
-    line-height: var(--line-height);
+    font-weight: bold;
+    font-size: 150px;
+    line-height: normal;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
    
   }
