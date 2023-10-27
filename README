@@ -1,1 +1,15 @@
+Overview
+This is a simple web application that uses the PokéAPI to display a list of Pokémon. Users can click on a Pokémon to view more details like height, weight, types, and abilities.
 
+Features
+List of Pokémon generated from the API
+A modal view for each Pokémon
+
+Technologies Used
+HTML
+JavaScript
+CSS
+Bootstrap
+
+Author
+Hanna Rawson
