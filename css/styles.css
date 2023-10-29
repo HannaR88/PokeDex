@@ -61,13 +61,5 @@ img {
         padding: 12px 20px;
         min-width: 80%;
     }
-footer {
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-    font-size: 100px;
-    line-height: normal;
-    display: flex;
-    flex-direction: column-reverse;
-   
+
   }
-}
