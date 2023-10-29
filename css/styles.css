@@ -55,6 +55,12 @@ img {
     margin-top: -20px;
     width: 50%;
 }
+
+@media all and (max-width: 500px) {
+    .button-class {
+        padding: 12px 20px;
+        min-width: 80%;
+    }
 footer {
     font-family: 'Lato', sans-serif;
     font-weight: bold;
@@ -64,3 +70,4 @@ footer {
     flex-direction: column-reverse;
    
   }
+}
